@@ -80,7 +80,7 @@ class shapeMAP:
     def readFile(self,fIN):
         data = {}
         lineNum = 0
-        for line in open(fIN, "rU").readlines():
+        for line in open(fIN, "r", newline='').readlines():
             x = line.rstrip().split()
             
             # initialize an array obj for the first line
@@ -737,14 +737,14 @@ def parseArgs():
     # generate a safe short name for the constraint, shape, and sequence files
     # by hashing the names of the input values, changing any input will make a new hash
     m = hashlib.md5()
-    m.update(str(o.mapFile))
-    m.update(str(o.ssRegion))
-    m.update(str(o.pkRegion))
-    m.update(str(o.differentialFile))
-    m.update(str(o.foldWindowSize))
-    m.update(str(o.partitionWindowSize))
-    m.update(str(o.maxPairingDist))
-    m.update(str(o.partitionStepSize))
+    m.update(o.mapFile.encode('utf-8'))
+    m.update(o.ssRegion.encode('utf-8'))
+    m.update(o.pkRegion.encode('utf-8'))
+    m.update(o.differentialFile.encode('utf-8'))
+    m.update(o.foldWindowSize.encode('utf-8'))
+    m.update(o.partitionWindowSize.encode('utf-8'))
+    m.update(o.maxPairingDist.encode('utf-8'))
+    m.update(o.partitionStepSize.encode('utf-8'))
     
     o.safeName = o.mapFile[:] +"_"+ m.hexdigest()[:4]
     
