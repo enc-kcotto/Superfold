@@ -881,13 +881,13 @@ def parseArgs():
     if o.differentialFile is not None:
         m.update(o.differentialFile.encode("utf-8"))
     if o.foldWindowSize is not None:
-        m.update(o.foldWindowSize.encode("utf-8"))
+        m.update(str(o.foldWindowSize).encode("utf-8"))
     if o.partitionWindowSize is not None:
-        m.update(o.partitionWindowSize.encode("utf-8"))
+        m.update(str(o.partitionWindowSize).encode("utf-8"))
     if o.maxPairingDist is not None:
-        m.update(o.maxPairingDist.encode("utf-8"))
+        m.update(str(o.maxPairingDist).encode("utf-8"))
     if o.partitionStepSize is not None:
-        m.update(o.partitionStepSize.encode("utf-8"))
+        m.update(str(o.partitionStepSize).encode("utf-8"))
 
     o.safeName = o.mapFile[:] + "_" + m.hexdigest()[:4]
 
