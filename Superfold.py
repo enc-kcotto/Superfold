@@ -738,7 +738,8 @@ def parseArgs():
     # by hashing the names of the input values, changing any input will make a new hash
     m = hashlib.md5()
     m.update(o.mapFile.encode('utf-8'))
-    m.update(o.ssRegion.encode('utf-8'))
+    if o.ssRegion is not None:
+        m.update(o.ssRegion.encode('utf-8'))
     m.update(o.pkRegion.encode('utf-8'))
     m.update(o.differentialFile.encode('utf-8'))
     m.update(o.foldWindowSize.encode('utf-8'))
