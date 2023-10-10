@@ -115,7 +115,9 @@ def main():
     args = parseArgs()
 
     # set the results directory
-    resultsDir = "results_" + args.safeName
+    resultsDir = (
+        "/home/jovyan/flbr/studies/shape-map/data/results/TPP_shapemap/superfold"
+    )
 
     print(resultsDir)
     try:
@@ -129,9 +131,9 @@ def main():
         pass
 
     # set location of the logfile
-    logFile = open("{0}/log_{0}.txt".format(resultsDir), "a")
+    logFile = open("{0}/log.txt".format(resultsDir), "a")
     sys.stdout = logFile
-    print("log file location: {0}/log_{0}.txt".format(resultsDir), file=sys.stderr)
+    print("log file location: {0}/log.txt".format(resultsDir), file=sys.stderr)
 
     print("\n" * 3, "#" * 51)
     print(
@@ -404,7 +406,7 @@ def generateAndRunFold(
     # print rnaLength
 
     # make the directory if it doesn't exist
-    dirname = "fold_" + prefix
+    dirname = resultsDir + "_fold"
     try:
         os.mkdir(dirname)
     except:
@@ -506,7 +508,12 @@ def generateAndRunPartition(
     # print rnaLength
 
     # make the directory if it doesn't exist
-    dirname = "partition_" + prefix
+    print(prefix)
+    dirname = (
+        "/home/jovyan/flbr/studies/shape-map/data/results/TPP_shapemap/TPP_testing_TPP/superfold"
+        + "_partition"
+    )
+
     try:
         os.mkdir(dirname)
     except:
